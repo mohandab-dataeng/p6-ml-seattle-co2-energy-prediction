@@ -1,0 +1,1500 @@
+[33mcommit 832dd703b36fd2952e9291d26742e3455979d9b0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mexploration[m[33m, [m[1;31morigin/exploration[m[33m)[m
+Author: Mohand <mohandab-dataeng@etik.com>
+Date:   Sun May 31 22:31:51 2026 +0200
+
+    feat: fin de l'EDA
+
+[1mdiff --git a/notebooks/p6-profiling-script.ipynb b/notebooks/p6-profiling-script.ipynb[m
+[1mindex ecc91b5..8b02a2e 100644[m
+[1m--- a/notebooks/p6-profiling-script.ipynb[m
+[1m+++ b/notebooks/p6-profiling-script.ipynb[m
+[36m@@ -21,7 +21,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 2,[m
+[32m+[m[32m   "execution_count": 6,[m
+    "id": "ff1522d5",[m
+    "metadata": {},[m
+    "outputs": [],[m
+[36m@@ -39,7 +39,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 6,[m
+[32m+[m[32m   "execution_count": 7,[m
+    "id": "242ecd4b",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -69,7 +69,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": null,[m
+[32m+[m[32m   "execution_count": 8,[m
+    "id": "1977443a",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -82,6 +82,13 @@[m
+      "metadata": {},[m
+      "output_type": "display_data"[m
+     },[m
+[32m+[m[32m    {[m
+[32m+[m[32m     "name": "stdout",[m
+[32m+[m[32m     "output_type": "stream",[m
+[32m+[m[32m     "text": [[m
+[32m+[m[32m      "Dataset: seattle_bench - 3376 rows 46 columns\n"[m
+[32m+[m[32m     ][m
+[32m+[m[32m    },[m
+     {[m
+      "data": {[m
+       "text/html": [[m
+[36m@@ -103,529 +110,576 @@[m
+        "  <thead>\n",[m
+        "    <tr style=\"text-align: right;\">\n",[m
+        "      <th></th>\n",[m
+[31m-       "      <th>colonne</th>\n",[m
+[31m-       "      <th>type</th>\n",[m
+[31m-       "      <th>longueur_max</th>\n",[m
+[32m+[m[32m       "      <th>columns</th>\n",[m
+        "      <th>non_null</th>\n",[m
+        "      <th>nan</th>\n",[m
+[31m-       "      <th>valeur_unique</th>\n",[m
+[32m+[m[32m       "      <th>nan %</th>\n",[m
+[32m+[m[32m       "      <th>unique</th>\n",[m
+[32m+[m[32m       "      <th>types</th>\n",[m
+[32m+[m[32m       "      <th>types_size</th>\n",[m
+        "    </tr>\n",[m
+        "  </thead>\n",[m
+        "  <tbody>\n",[m
+        "    <tr>\n",[m
+        "      <th>0</th>\n",[m
+        "      <td>OSEBuildingID</td>\n",[m
+[31m-       "      <td>int64</td>\n",[m
+[31m-       "      <td>5.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+[32m+[m[32m       "      <td>int64</td>\n",[m
+[32m+[m[32m       "      <td>5.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>1</th>\n",[m
+        "      <td>DataYear</td>\n",[m
+[31m-       "      <td>int64</td>\n",[m
+[31m-       "      <td>4.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>1</td>\n",[m
+[32m+[m[32m       "      <td>int64</td>\n",[m
+[32m+[m[32m       "      <td>4.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>2</th>\n",[m
+        "      <td>BuildingType</td>\n",[m
+[31m-       "      <td>str</td>\n",[m
+[31m-       "      <td>20.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>8</td>\n",[m
+[32m+[m[32m       "      <td>str</td>\n",[m
+[32m+[m[32m       "      <td>20.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>3</th>\n",[m
+        "      <td>PrimaryPropertyType</td>\n",[m
+[31m-       "      <td>str</td>\n",[m
+[31m-       "      <td>27.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>24</td>\n",[m
+[32m+[m[32m       "      <td>str</td>\n",[m
+[32m+[m[32m       "      <td>27.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>4</th>\n",[m
+        "      <td>PropertyName</td>\n",[m
+[31m-       "      <td>str</td>\n",[m
+[31m-       "      <td>72.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>3362</td>\n",[m
+[32m+[m[32m       "      <td>str</td>\n",[m
+[32m+[m[32m       "      <td>72.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>5</th>\n",[m
+        "      <td>Address</td>\n",[m
+[31m-       "      <td>str</td>\n",[m
+[31m-       "      <td>41.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>3354</td>\n",[m
+[32m+[m[32m       "      <td>str</td>\n",[m
+[32m+[m[32m       "      <td>41.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>6</th>\n",[m
+        "      <td>City</td>\n",[m
+[31m-       "      <td>str</td>\n",[m
+[31m-       "      <td>7.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>1</td>\n",[m
+[32m+[m[32m       "      <td>str</td>\n",[m
+[32m+[m[32m       "      <td>7.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>7</th>\n",[m
+        "      <td>State</td>\n",[m
+[31m-       "      <td>str</td>\n",[m
+[31m-       "      <td>2.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>1</td>\n",[m
+[32m+[m[32m       "      <td>str</td>\n",[m
+[32m+[m[32m       "      <td>2.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>8</th>\n",[m
+        "      <td>ZipCode</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>7.0</td>\n",[m
+        "      <td>3360</td>\n",[m
+        "      <td>16</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>55</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>7.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>9</th>\n",[m
+        "      <td>TaxParcelIdentificationNumber</td>\n",[m
+[31m-       "      <td>str</td>\n",[m
+[31m-       "      <td>25.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>3268</td>\n",[m
+[32m+[m[32m       "      <td>str</td>\n",[m
+[32m+[m[32m       "      <td>25.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>10</th>\n",[m
+        "      <td>CouncilDistrictCode</td>\n",[m
+[31m-       "      <td>int64</td>\n",[m
+[31m-       "      <td>1.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>7</td>\n",[m
+[32m+[m[32m       "      <td>int64</td>\n",[m
+[32m+[m[32m       "      <td>1.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>11</th>\n",[m
+        "      <td>Neighborhood</td>\n",[m
+[31m-       "      <td>str</td>\n",[m
+[31m-       "      <td>22.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>19</td>\n",[m
+[32m+[m[32m       "      <td>str</td>\n",[m
+[32m+[m[32m       "      <td>22.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>12</th>\n",[m
+        "      <td>Latitude</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>11.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>2876</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>13</th>\n",[m
+        "      <td>Longitude</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>12.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>2656</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>12.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>14</th>\n",[m
+        "      <td>YearBuilt</td>\n",[m
+[31m-       "      <td>int64</td>\n",[m
+[31m-       "      <td>4.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>113</td>\n",[m
+[32m+[m[32m       "      <td>int64</td>\n",[m
+[32m+[m[32m       "      <td>4.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>15</th>\n",[m
+        "      <td>NumberofBuildings</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>5.0</td>\n",[m
+        "      <td>3368</td>\n",[m
+        "      <td>8</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>17</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>5.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>16</th>\n",[m
+        "      <td>NumberofFloors</td>\n",[m
+[31m-       "      <td>int64</td>\n",[m
+[31m-       "      <td>2.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>50</td>\n",[m
+[32m+[m[32m       "      <td>int64</td>\n",[m
+[32m+[m[32m       "      <td>2.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>17</th>\n",[m
+        "      <td>PropertyGFATotal</td>\n",[m
+[31m-       "      <td>int64</td>\n",[m
+[31m-       "      <td>7.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>3195</td>\n",[m
+[32m+[m[32m       "      <td>int64</td>\n",[m
+[32m+[m[32m       "      <td>7.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>18</th>\n",[m
+        "      <td>PropertyGFAParking</td>\n",[m
+[31m-       "      <td>int64</td>\n",[m
+[31m-       "      <td>6.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>496</td>\n",[m
+[32m+[m[32m       "      <td>int64</td>\n",[m
+[32m+[m[32m       "      <td>6.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>19</th>\n",[m
+        "      <td>PropertyGFABuilding(s)</td>\n",[m
+[31m-       "      <td>int64</td>\n",[m
+[31m-       "      <td>7.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>3193</td>\n",[m
+[32m+[m[32m       "      <td>int64</td>\n",[m
+[32m+[m[32m       "      <td>7.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>20</th>\n",[m
+        "      <td>ListOfAllPropertyUseTypes</td>\n",[m
+[31m-       "      <td>str</td>\n",[m
+[31m-       "      <td>255.0</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>466</td>\n",[m
+[32m+[m[32m       "      <td>str</td>\n",[m
+[32m+[m[32m       "      <td>255.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>21</th>\n",[m
+        "      <td>LargestPropertyUseType</td>\n",[m
+[31m-       "      <td>str</td>\n",[m
+[31m-       "      <td>52.0</td>\n",[m
+        "      <td>3356</td>\n",[m
+        "      <td>20</td>\n",[m
+[32m+[m[32m       "      <td>1.0</td>\n",[m
+        "      <td>56</td>\n",[m
+[32m+[m[32m       "      <td>str</td>\n",[m
+[32m+[m[32m       "      <td>52.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>22</th>\n",[m
+        "      <td>LargestPropertyUseTypeGFA</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>9.0</td>\n",[m
+        "      <td>3356</td>\n",[m
+        "      <td>20</td>\n",[m
+[32m+[m[32m       "      <td>1.0</td>\n",[m
+        "      <td>3122</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>9.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>23</th>\n",[m
+        "      <td>SecondLargestPropertyUseType</td>\n",[m
+[31m-       "      <td>str</td>\n",[m
+[31m-       "      <td>52.0</td>\n",[m
+        "      <td>1679</td>\n",[m
+        "      <td>1697</td>\n",[m
+[32m+[m[32m       "      <td>50.0</td>\n",[m
+        "      <td>50</td>\n",[m
+[32m+[m[32m       "      <td>str</td>\n",[m
+[32m+[m[32m       "      <td>52.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>24</th>\n",[m
+        "      <td>SecondLargestPropertyUseTypeGFA</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>11.0</td>\n",[m
+        "      <td>1679</td>\n",[m
+        "      <td>1697</td>\n",[m
+[32m+[m[32m       "      <td>50.0</td>\n",[m
+        "      <td>1352</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>25</th>\n",[m
+        "      <td>ThirdLargestPropertyUseType</td>\n",[m
+[31m-       "      <td>str</td>\n",[m
+[31m-       "      <td>52.0</td>\n",[m
+        "      <td>596</td>\n",[m
+        "      <td>2780</td>\n",[m
+[32m+[m[32m       "      <td>82.0</td>\n",[m
+        "      <td>44</td>\n",[m
+[32m+[m[32m       "      <td>str</td>\n",[m
+[32m+[m[32m       "      <td>52.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>26</th>\n",[m
+        "      <td>ThirdLargestPropertyUseTypeGFA</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>11.0</td>\n",[m
+        "      <td>596</td>\n",[m
+        "      <td>2780</td>\n",[m
+[32m+[m[32m       "      <td>82.0</td>\n",[m
+        "      <td>501</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>27</th>\n",[m
+        "      <td>YearsENERGYSTARCertified</td>\n",[m
+[31m-       "      <td>object</td>\n",[m
+[31m-       "      <td>60.0</td>\n",[m
+        "      <td>119</td>\n",[m
+        "      <td>3257</td>\n",[m
+[32m+[m[32m       "      <td>96.0</td>\n",[m
+        "      <td>65</td>\n",[m
+[32m+[m[32m       "      <td>object</td>\n",[m
+[32m+[m[32m       "      <td>60.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>28</th>\n",[m
+        "      <td>ENERGYSTARScore</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>5.0</td>\n",[m
+        "      <td>2533</td>\n",[m
+        "      <td>843</td>\n",[m
+[32m+[m[32m       "      <td>25.0</td>\n",[m
+        "      <td>100</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>5.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>29</th>\n",[m
+        "      <td>SiteEUI(kBtu/sf)</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>11.0</td>\n",[m
+        "      <td>3369</td>\n",[m
+        "      <td>7</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>1085</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>30</th>\n",[m
+        "      <td>SiteEUIWN(kBtu/sf)</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>11.0</td>\n",[m
+        "      <td>3370</td>\n",[m
+        "      <td>6</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>1105</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>31</th>\n",[m
+        "      <td>SourceEUI(kBtu/sf)</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>11.0</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>1648</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>32</th>\n",[m
+        "      <td>SourceEUIWN(kBtu/sf)</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>12.0</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>1694</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>12.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>33</th>\n",[m
+        "      <td>SiteEnergyUse(kBtu)</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>11.0</td>\n",[m
+        "      <td>3371</td>\n",[m
+        "      <td>5</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>3354</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>34</th>\n",[m
+        "      <td>SiteEnergyUseWN(kBtu)</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>11.0</td>\n",[m
+        "      <td>3370</td>\n",[m
+        "      <td>6</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>3341</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>35</th>\n",[m
+        "      <td>SteamUse(kBtu)</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>11.0</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>131</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>36</th>\n",[m
+        "      <td>Electricity(kWh)</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>12.0</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>3352</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>12.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>37</th>\n",[m
+        "      <td>Electricity(kBtu)</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>11.0</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>3351</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>38</th>\n",[m
+        "      <td>NaturalGas(therms)</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>11.0</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>2109</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>39</th>\n",[m
+        "      <td>NaturalGas(kBtu)</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>11.0</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>2109</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>40</th>\n",[m
+        "      <td>DefaultData</td>\n",[m
+[31m-       "      <td>bool</td>\n",[m
+[31m-       "      <td>5.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>2</td>\n",[m
+[32m+[m[32m       "      <td>bool</td>\n",[m
+[32m+[m[32m       "      <td>5.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>41</th>\n",[m
+        "      <td>Comments</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>NaN</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>3376</td>\n",[m
+[32m+[m[32m       "      <td>100.0</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>NaN</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>42</th>\n",[m
+        "      <td>ComplianceStatus</td>\n",[m
+[31m-       "      <td>str</td>\n",[m
+[31m-       "      <td>28.0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>4</td>\n",[m
+[32m+[m[32m       "      <td>str</td>\n",[m
+[32m+[m[32m       "      <td>28.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>43</th>\n",[m
+        "      <td>Outlier</td>\n",[m
+[31m-       "      <td>str</td>\n",[m
+[31m-       "      <td>12.0</td>\n",[m
+        "      <td>32</td>\n",[m
+        "      <td>3344</td>\n",[m
+[32m+[m[32m       "      <td>99.0</td>\n",[m
+        "      <td>2</td>\n",[m
+[32m+[m[32m       "      <td>str</td>\n",[m
+[32m+[m[32m       "      <td>12.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>44</th>\n",[m
+        "      <td>TotalGHGEmissions</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>8.0</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>2818</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>8.0</td>\n",[m
+        "    </tr>\n",[m
+        "    <tr>\n",[m
+        "      <th>45</th>\n",[m
+        "      <td>GHGEmissionsIntensity</td>\n",[m
+[31m-       "      <td>float64</td>\n",[m
+[31m-       "      <td>5.0</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>511</td>\n",[m
+[32m+[m[32m       "      <td>float64</td>\n",[m
+[32m+[m[32m       "      <td>5.0</td>\n",[m
+        "    </tr>\n",[m
+        "  </tbody>\n",[m
+        "</table>\n",[m
+        "</div>"[m
+       ],[m
+       "text/plain": [[m
+[31m-       "                            colonne     type  longueur_max  non_null   nan  \\\n",[m
+[31m-       "0                     OSEBuildingID    int64           5.0      3376     0   \n",[m
+[31m-       "1                          DataYear    int64           4.0      3376     0   \n",[m
+[31m-       "2                      BuildingType      str          20.0      3376     0   \n",[m
+[31m-       "3               PrimaryPropertyType      str          27.0      3376     0   \n",[m
+[31m-       "4                      PropertyName      str          72.0      3376     0   \n",[m
+[31m-       "5                           Address      str          41.0      3376     0   \n",[m
+[31m-       "6                              City      str           7.0      3376     0   \n",[m
+[31m-       "7                             State      str           2.0      3376     0   \n",[m
+[31m-       "8                           ZipCode  float64           7.0      3360    16   \n",[m
+[31m-       "9     TaxParcelIdentificationNumber      str          25.0      3376     0   \n",[m
+[31m-       "10              CouncilDistrictCode    int64           1.0      3376     0   \n",[m
+[31m-       "11                     Neighborhood      str          22.0      3376     0   \n",[m
+[31m-       "12                         Latitude  float64          11.0      3376     0   \n",[m
+[31m-       "13                        Longitude  float64          12.0      3376     0   \n",[m
+[31m-       "14                        YearBuilt    int64           4.0      3376     0   \n",[m
+[31m-       "15                NumberofBuildings  float64           5.0      3368     8   \n",[m
+[31m-       "16                   NumberofFloors    int64           2.0      3376     0   \n",[m
+[31m-       "17                 PropertyGFATotal    int64           7.0      3376     0   \n",[m
+[31m-       "18               PropertyGFAParking    int64           6.0      3376     0   \n",[m
+[31m-       "19           PropertyGFABuilding(s)    int64           7.0      3376     0   \n",[m
+[31m-       "20        ListOfAllPropertyUseTypes      str         255.0      3367     9   \n",[m
+[31m-       "21           LargestPropertyUseType      str          52.0      3356    20   \n",[m
+[31m-       "22        LargestPropertyUseTypeGFA  float64           9.0      3356    20   \n",[m
+[31m-       "23     SecondLargestPropertyUseType      str          52.0      1679  1697   \n",[m
+[31m-       "24  SecondLargestPropertyUseTypeGFA  float64          11.0      1679  1697   \n",[m
+[31m-       "25      ThirdLargestPropertyUseType      str          52.0       596  2780   \n",[m
+[31m-       "26   ThirdLargestPropertyUseTypeGFA  float64          11.0       596  2780   \n",[m
+[31m-       "27         YearsENERGYSTARCertified   object          60.0       119  3257   \n",[m
+[31m-       "28                  ENERGYSTARScore  float64           5.0      2533   843   \n",[m
+[31m-       "29                 SiteEUI(kBtu/sf)  float64          11.0      3369     7   \n",[m
+[31m-       "30               SiteEUIWN(kBtu/sf)  float64          11.0      3370     6   \n",[m
+[31m-       "31               SourceEUI(kBtu/sf)  float64          11.0      3367     9   \n",[m
+[31m-       "32             SourceEUIWN(kBtu/sf)  float64          12.0      3367     9   \n",[m
+[31m-       "33              SiteEnergyUse(kBtu)  float64          11.0      3371     5   \n",[m
+[31m-       "34            SiteEnergyUseWN(kBtu)  float64          11.0      3370     6   \n",[m
+[31m-       "35                   SteamUse(kBtu)  float64          11.0      3367     9   \n",[m
+[31m-       "36                 Electricity(kWh)  float64          12.0      3367     9   \n",[m
+[31m-       "37                Electricity(kBtu)  float64          11.0      3367     9   \n",[m
+[31m-       "38               NaturalGas(therms)  float64          11.0      3367     9   \n",[m
+[31m-       "39                 NaturalGas(kBtu)  float64          11.0      3367     9   \n",[m
+[31m-       "40                      DefaultData     bool           5.0      3376     0   \n",[m
+[31m-       "41                         Comments  float64           NaN         0  3376   \n",[m
+[31m-       "42                 ComplianceStatus      str          28.0      3376     0   \n",[m
+[31m-       "43                          Outlier      str          12.0        32  3344   \n",[m
+[31m-       "44                TotalGHGEmissions  float64           8.0      3367     9   \n",[m
+[31m-       "45            GHGEmissionsIntensity  float64           5.0      3367     9   \n",[m
+[32m+[m[32m       "                            columns  non_null   nan  nan %  unique    types  \\\n",[m
+[32m+[m[32m       "0                     OSEBuildingID      3376     0    0.0    3376    int64   \n",[m
+[32m+[m[32m       "1                          DataYear      3376     0    0.0       1    int64   \n",[m
+[32m+[m[32m       "2                      BuildingType      3376     0    0.0       8      str   \n",[m
+[32m+[m[32m       "3               PrimaryPropertyType      3376     0    0.0      24      str   \n",[m
+[32m+[m[32m       "4                      PropertyName      3376     0    0.0    3362      str   \n",[m
+[32m+[m[32m       "5                           Address      3376     0    0.0    3354      str   \n",[m
+[32m+[m[32m       "6                              City      3376     0    0.0       1      str   \n",[m
+[32m+[m[32m       "7                             State      3376     0    0.0       1      str   \n",[m
+[32m+[m[32m       "8                           ZipCode      3360    16    0.0      55  float64   \n",[m
+[32m+[m[32m       "9     TaxParcelIdentificationNumber      3376     0    0.0    3268      str   \n",[m
+[32m+[m[32m       "10              CouncilDistrictCode      3376     0    0.0       7    int64   \n",[m
+[32m+[m[32m       "11                     Neighborhood      3376     0    0.0      19      str   \n",[m
+[32m+[m[32m       "12                         Latitude      3376     0    0.0    2876  float64   \n",[m
+[32m+[m[32m       "13                        Longitude      3376     0    0.0    2656  float64   \n",[m
+[32m+[m[32m       "14                        YearBuilt      3376     0    0.0     113    int64   \n",[m
+[32m+[m[32m       "15                NumberofBuildings      3368     8    0.0      17  float64   \n",[m
+[32m+[m[32m       "16                   NumberofFloors      3376     0    0.0      50    int64   \n",[m
+[32m+[m[32m       "17                 PropertyGFATotal      3376     0    0.0    3195    int64   \n",[m
+[32m+[m[32m       "18               PropertyGFAParking      3376     0    0.0     496    int64   \n",[m
+[32m+[m[32m       "19           PropertyGFABuilding(s)      3376     0    0.0    3193    int64   \n",[m
+[32m+[m[32m       "20        ListOfAllPropertyUseTypes      3367     9    0.0     466      str   \n",[m
+[32m+[m[32m       "21           LargestPropertyUseType      3356    20    1.0      56      str   \n",[m
+[32m+[m[32m       "22        LargestPropertyUseTypeGFA      3356    20    1.0    3122  float64   \n",[m
+[32m+[m[32m       "23     SecondLargestPropertyUseType      1679  1697   50.0      50      str   \n",[m
+[32m+[m[32m       "24  SecondLargestPropertyUseTypeGFA      1679  1697   50.0    1352  float64   \n",[m
+[32m+[m[32m       "25      ThirdLargestPropertyUseType       596  2780   82.0      44      str   \n",[m
+[32m+[m[32m       "26   ThirdLargestPropertyUseTypeGFA       596  2780   82.0     501  float64   \n",[m
+[32m+[m[32m       "27         YearsENERGYSTARCertified       119  3257   96.0      65   object   \n",[m
+[32m+[m[32m       "28                  ENERGYSTARScore      2533   843   25.0     100  float64   \n",[m
+[32m+[m[32m       "29                 SiteEUI(kBtu/sf)      3369     7    0.0    1085  float64   \n",[m
+[32m+[m[32m       "30               SiteEUIWN(kBtu/sf)      3370     6    0.0    1105  float64   \n",[m
+[32m+[m[32m       "31               SourceEUI(kBtu/sf)      3367     9    0.0    1648  float64   \n",[m
+[32m+[m[32m       "32             SourceEUIWN(kBtu/sf)      3367     9    0.0    1694  float64   \n",[m
+[32m+[m[32m       "33              SiteEnergyUse(kBtu)      3371     5    0.0    3354  float64   \n",[m
+[32m+[m[32m       "34            SiteEnergyUseWN(kBtu)      3370     6    0.0    3341  float64   \n",[m
+[32m+[m[32m       "35                   SteamUse(kBtu)      3367     9    0.0     131  float64   \n",[m
+[32m+[m[32m       "36                 Electricity(kWh)      3367     9    0.0    3352  float64   \n",[m
+[32m+[m[32m       "37                Electricity(kBtu)      3367     9    0.0    3351  float64   \n",[m
+[32m+[m[32m       "38               NaturalGas(therms)      3367     9    0.0    2109  float64   \n",[m
+[32m+[m[32m       "39                 NaturalGas(kBtu)      3367     9    0.0    2109  float64   \n",[m
+[32m+[m[32m       "40                      DefaultData      3376     0    0.0       2     bool   \n",[m
+[32m+[m[32m       "41                         Comments         0  3376  100.0       0  float64   \n",[m
+[32m+[m[32m       "42                 ComplianceStatus      3376     0    0.0       4      str   \n",[m
+[32m+[m[32m       "43                          Outlier        32  3344   99.0       2      str   \n",[m
+[32m+[m[32m       "44                TotalGHGEmissions      3367     9    0.0    2818  float64   \n",[m
+[32m+[m[32m       "45            GHGEmissionsIntensity      3367     9    0.0     511  float64   \n",[m
+        "\n",[m
+[31m-       "    valeur_unique  \n",[m
+[31m-       "0            3376  \n",[m
+[31m-       "1               1  \n",[m
+[31m-       "2               8  \n",[m
+[31m-       "3              24  \n",[m
+[31m-       "4            3362  \n",[m
+[31m-       "5            3354  \n",[m
+[31m-       "6               1  \n",[m
+[31m-       "7               1  \n",[m
+[31m-       "8              55  \n",[m
+[31m-       "9            3268  \n",[m
+[31m-       "10              7  \n",[m
+[31m-       "11             19  \n",[m
+[31m-       "12           2876  \n",[m
+[31m-       "13           2656  \n",[m
+[31m-       "14            113  \n",[m
+[31m-       "15             17  \n",[m
+[31m-       "16             50  \n",[m
+[31m-       "17           3195  \n",[m
+[31m-       "18            496  \n",[m
+[31m-       "19           3193  \n",[m
+[31m-       "20            466  \n",[m
+[31m-       "21             56  \n",[m
+[31m-       "22           3122  \n",[m
+[31m-       "23             50  \n",[m
+[31m-       "24           1352  \n",[m
+[31m-       "25             44  \n",[m
+[31m-       "26            501  \n",[m
+[31m-       "27             65  \n",[m
+[31m-       "28            100  \n",[m
+[31m-       "29           1085  \n",[m
+[31m-       "30           1105  \n",[m
+[31m-       "31           1648  \n",[m
+[31m-       "32           1694  \n",[m
+[31m-       "33           3354  \n",[m
+[31m-       "34           3341  \n",[m
+[31m-       "35            131  \n",[m
+[31m-       "36           3352  \n",[m
+[31m-       "37           3351  \n",[m
+[31m-       "38           2109  \n",[m
+[31m-       "39           2109  \n",[m
+[31m-       "40              2  \n",[m
+[31m-       "41              0  \n",[m
+[31m-       "42              4  \n",[m
+[31m-       "43              2  \n",[m
+[31m-       "44           2818  \n",[m
+[31m-       "45            511  "[m
+[32m+[m[32m       "    types_size  \n",[m
+[32m+[m[32m       "0          5.0  \n",[m
+[32m+[m[32m       "1          4.0  \n",[m
+[32m+[m[32m       "2         20.0  \n",[m
+[32m+[m[32m       "3         27.0  \n",[m
+[32m+[m[32m       "4         72.0  \n",[m
+[32m+[m[32m       "5         41.0  \n",[m
+[32m+[m[32m       "6          7.0  \n",[m
+[32m+[m[32m       "7          2.0  \n",[m
+[32m+[m[32m       "8          7.0  \n",[m
+[32m+[m[32m       "9         25.0  \n",[m
+[32m+[m[32m       "10         1.0  \n",[m
+[32m+[m[32m       "11        22.0  \n",[m
+[32m+[m[32m       "12        11.0  \n",[m
+[32m+[m[32m       "13        12.0  \n",[m
+[32m+[m[32m       "14         4.0  \n",[m
+[32m+[m[32m       "15         5.0  \n",[m
+[32m+[m[32m       "16         2.0  \n",[m
+[32m+[m[32m       "17         7.0  \n",[m
+[32m+[m[32m       "18         6.0  \n",[m
+[32m+[m[32m       "19         7.0  \n",[m
+[32m+[m[32m       "20       255.0  \n",[m
+[32m+[m[32m       "21        52.0  \n",[m
+[32m+[m[32m       "22         9.0  \n",[m
+[32m+[m[32m       "23        52.0  \n",[m
+[32m+[m[32m       "24        11.0  \n",[m
+[32m+[m[32m       "25        52.0  \n",[m
+[32m+[m[32m       "26        11.0  \n",[m
+[32m+[m[32m       "27        60.0  \n",[m
+[32m+[m[32m       "28         5.0  \n",[m
+[32m+[m[32m       "29        11.0  \n",[m
+[32m+[m[32m       "30        11.0  \n",[m
+[32m+[m[32m       "31        11.0  \n",[m
+[32m+[m[32m       "32        12.0  \n",[m
+[32m+[m[32m       "33        11.0  \n",[m
+[32m+[m[32m       "34        11.0  \n",[m
+[32m+[m[32m       "35        11.0  \n",[m
+[32m+[m[32m       "36        12.0  \n",[m
+[32m+[m[32m       "37        11.0  \n",[m
+[32m+[m[32m       "38        11.0  \n",[m
+[32m+[m[32m       "39        11.0  \n",[m
+[32m+[m[32m       "40         5.0  \n",[m
+[32m+[m[32m       "41         NaN  \n",[m
+[32m+[m[32m       "42        28.0  \n",[m
+[32m+[m[32m       "43        12.0  \n",[m
+[32m+[m[32m       "44         8.0  \n",[m
+[32m+[m[32m       "45         5.0  "[m
+       ][m
+      },[m
+      "metadata": {},[m
+[36m@@ -633,23 +687,25 @@[m
+     }[m
+    ],[m
+    "source": [[m
+[31m-    "def renseigne(df,name):\n",[m
+[31m-    "    df_inv = pd.DataFrame({\n",[m
+[31m-    "        'colonne': df.columns,\n",[m
+[31m-    "        'type': df.dtypes.values,\n",[m
+[31m-    "        'longueur_max': df.apply(lambda col: col.astype(str).str.len().max()).values,\n",[m
+[32m+[m[32m    "def info(df, name):\n",[m
+[32m+[m[32m    "    print(f\"Dataset: {name} - {df.shape[0]} rows {df.shape[1]} columns\")\n",[m
+[32m+[m[32m    "    df_profile = pd.DataFrame({ \n",[m
+[32m+[m[32m    "        'columns': df.columns.values,\n",[m
+     "        'non_null': df.notnull().sum().values,\n",[m
+[31m-    "        'nan': df.isnull().sum().values, \n",[m
+[31m-    "        'valeur_unique':df.nunique().values,\n",[m
+[32m+[m[32m    "        'nan': df.isna().sum().values,\n",[m
+[32m+[m[32m    "        'nan %': (df.isna().sum() / len(df) * 100).values.round(0), \n",[m
+[32m+[m[32m    "        'unique':df.nunique().values,\n",[m
+[32m+[m[32m    "        'types':df.dtypes.values,\n",[m
+[32m+[m[32m    "        'types_size': df.apply(lambda col:(col.astype(str).str.len().max())).values\n",[m
+     "    })\n",[m
+[31m-    "    return df_types\n",[m
+[32m+[m[32m    "    return df_profile\n",[m
+     "\n",[m
+     "# Boucle sur chaque feuille si necessaire\n",[m
+     "file = {\"seattle_bench\": df_profile}\n",[m
+     "\n",[m
+     "for nom_feuille, df in file.items():\n",[m
+     "    display(f\"\\n--- Feuille : {nom_feuille} ---\")\n",[m
+[31m-    "    display(renseigne(df,\"seattle_bench\"))"[m
+[32m+[m[32m    "    display(info(df,\"seattle_bench\"))"[m
+    ][m
+   },[m
+   {[m
+[1mdiff --git a/notebooks/p6-script-EDA.ipynb b/notebooks/p6-script-EDA.ipynb[m
+[1mindex 6f5aeb3..26a8d77 100644[m
+[1m--- a/notebooks/p6-script-EDA.ipynb[m
+[1m+++ b/notebooks/p6-script-EDA.ipynb[m
+[36m@@ -6,22 +6,27 @@[m
+    "metadata": {},[m
+    "source": [[m
+     "### Bloc 1 - Analyse exploratoire des données pour modélisation ML\n",[m
+[31m-    "1) Chargement du fichier\n",[m
+[32m+[m[32m    "1) Chargement du dataset\n",[m
+     "2) Fonction informative du dataset et affichage\n",[m
+[31m-    "3) Identification et selection des bâtiments qui ne sont pas dédié exclusivement à l'habitation\n",[m
+[31m-    "\n"[m
+[32m+[m[32m    "3) Gestion des doublons\n",[m
+[32m+[m[32m    "4) Identification et selection des bâtiments qui ne sont pas dédié exclusivement à l'habitation - Exigence technique du client\n",[m
+[32m+[m[32m    "5) Gestion des valeurs manquantes\n",[m
+[32m+[m[32m    "6) Filtrage avec les colonnes utilitaires métier dećlarées\n",[m
+[32m+[m[32m    "7) Recherche des outliers non déclarés\n",[m
+[32m+[m[32m    "8) Corrélations avec les targets\n"[m
+    ][m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 203,[m
+[32m+[m[32m   "execution_count": null,[m
+    "id": "8dfdc098",[m
+    "metadata": {},[m
+    "outputs": [],[m
+    "source": [[m
+     "import pandas as pd\n",[m
+     "import matplotlib.pyplot as plt \n",[m
+[31m-    "import missingno as msno"[m
+[32m+[m[32m    "import missingno as msno\n",[m
+[32m+[m[32m    "import seaborn as sns"[m
+    ][m
+   },[m
+   {[m
+[36m@@ -29,12 +34,12 @@[m
+    "id": "cccef21d",[m
+    "metadata": {},[m
+    "source": [[m
+[31m-    "#### 1) Chargement du fichier à la racine du repertoire data\n"[m
+[32m+[m[32m    "#### 1) Chargement du dataset à la racine du repertoire data\n"[m
+    ][m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 98,[m
+[32m+[m[32m   "execution_count": 63,[m
+    "id": "68946526",[m
+    "metadata": {},[m
+    "outputs": [],[m
+[36m@@ -52,7 +57,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 99,[m
+[32m+[m[32m   "execution_count": 64,[m
+    "id": "c2d79525",[m
+    "metadata": {},[m
+    "outputs": [],[m
+[36m@@ -63,10 +68,10 @@[m
+     "        'columns': df.columns.values,\n",[m
+     "        'non_null': df.notnull().sum().values,\n",[m
+     "        'nan': df.isna().sum().values,\n",[m
+[31m-    "        'nan %': (df.isna().sum() / len(df) * 100).values.round(0), \n",[m
+[31m-    "        'unique':df.nunique().values,\n",[m
+[32m+[m[32m    "        'nan %': (df.isna().sum() / len(df) * 100).values.round(1), \n",[m
+[32m+[m[32m    "        'unique':(df.nunique() / len(df) * 100).values.round(1), \n",[m
+     "        'types':df.dtypes.values,\n",[m
+[31m-    "        'types_size': df.apply(lambda col:(col.astype(str).str.len().max())).values\n",[m
+[32m+[m[32m    "        'types_length': df.apply(lambda col:(col.astype(str).str.len().max())).values\n",[m
+     "    })\n",[m
+     "    return profil\n",[m
+     "    "[m
+[36m@@ -74,7 +79,7 @@[m
+   },[m
+   {[m
+    "cell_type": "code",[m
+[31m-   "execution_count": 100,[m
+[32m+[m[32m   "execution_count": 65,[m
+    "id": "c17827f8",[m
+    "metadata": {},[m
+    "outputs": [[m
+[36m@@ -112,7 +117,7 @@[m
+        "      <th>nan %</th>\n",[m
+        "      <th>unique</th>\n",[m
+        "      <th>types</th>\n",[m
+[31m-       "      <th>types_size</th>\n",[m
+[32m+[m[32m       "      <th>types_length</th>\n",[m
+        "    </tr>\n",[m
+        "  </thead>\n",[m
+        "  <tbody>\n",[m
+[36m@@ -122,7 +127,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>3376</td>\n",[m
+[32m+[m[32m       "      <td>100.0</td>\n",[m
+        "      <td>int64</td>\n",[m
+        "      <td>5.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -132,7 +137,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>1</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>int64</td>\n",[m
+        "      <td>4.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -142,7 +147,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>8</td>\n",[m
+[32m+[m[32m       "      <td>0.2</td>\n",[m
+        "      <td>str</td>\n",[m
+        "      <td>20.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -152,7 +157,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>24</td>\n",[m
+[32m+[m[32m       "      <td>0.7</td>\n",[m
+        "      <td>str</td>\n",[m
+        "      <td>27.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -162,7 +167,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>3362</td>\n",[m
+[32m+[m[32m       "      <td>99.6</td>\n",[m
+        "      <td>str</td>\n",[m
+        "      <td>72.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -172,7 +177,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>3354</td>\n",[m
+[32m+[m[32m       "      <td>99.3</td>\n",[m
+        "      <td>str</td>\n",[m
+        "      <td>41.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -182,7 +187,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>1</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>str</td>\n",[m
+        "      <td>7.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -192,7 +197,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>1</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>str</td>\n",[m
+        "      <td>2.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -201,8 +206,8 @@[m
+        "      <td>ZipCode</td>\n",[m
+        "      <td>3360</td>\n",[m
+        "      <td>16</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>55</td>\n",[m
+[32m+[m[32m       "      <td>0.5</td>\n",[m
+[32m+[m[32m       "      <td>1.6</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>7.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -212,7 +217,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>3268</td>\n",[m
+[32m+[m[32m       "      <td>96.8</td>\n",[m
+        "      <td>str</td>\n",[m
+        "      <td>25.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -222,7 +227,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>7</td>\n",[m
+[32m+[m[32m       "      <td>0.2</td>\n",[m
+        "      <td>int64</td>\n",[m
+        "      <td>1.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -232,7 +237,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>19</td>\n",[m
+[32m+[m[32m       "      <td>0.6</td>\n",[m
+        "      <td>str</td>\n",[m
+        "      <td>22.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -242,7 +247,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>2876</td>\n",[m
+[32m+[m[32m       "      <td>85.2</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -252,7 +257,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>2656</td>\n",[m
+[32m+[m[32m       "      <td>78.7</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>12.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -262,7 +267,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>113</td>\n",[m
+[32m+[m[32m       "      <td>3.3</td>\n",[m
+        "      <td>int64</td>\n",[m
+        "      <td>4.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -271,8 +276,8 @@[m
+        "      <td>NumberofBuildings</td>\n",[m
+        "      <td>3368</td>\n",[m
+        "      <td>8</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>17</td>\n",[m
+[32m+[m[32m       "      <td>0.2</td>\n",[m
+[32m+[m[32m       "      <td>0.5</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>5.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -282,7 +287,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>50</td>\n",[m
+[32m+[m[32m       "      <td>1.5</td>\n",[m
+        "      <td>int64</td>\n",[m
+        "      <td>2.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -292,7 +297,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>3195</td>\n",[m
+[32m+[m[32m       "      <td>94.6</td>\n",[m
+        "      <td>int64</td>\n",[m
+        "      <td>7.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -302,7 +307,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>496</td>\n",[m
+[32m+[m[32m       "      <td>14.7</td>\n",[m
+        "      <td>int64</td>\n",[m
+        "      <td>6.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -312,7 +317,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>3193</td>\n",[m
+[32m+[m[32m       "      <td>94.6</td>\n",[m
+        "      <td>int64</td>\n",[m
+        "      <td>7.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -321,8 +326,8 @@[m
+        "      <td>ListOfAllPropertyUseTypes</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>466</td>\n",[m
+[32m+[m[32m       "      <td>0.3</td>\n",[m
+[32m+[m[32m       "      <td>13.8</td>\n",[m
+        "      <td>str</td>\n",[m
+        "      <td>255.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -331,8 +336,8 @@[m
+        "      <td>LargestPropertyUseType</td>\n",[m
+        "      <td>3356</td>\n",[m
+        "      <td>20</td>\n",[m
+[31m-       "      <td>1.0</td>\n",[m
+[31m-       "      <td>56</td>\n",[m
+[32m+[m[32m       "      <td>0.6</td>\n",[m
+[32m+[m[32m       "      <td>1.7</td>\n",[m
+        "      <td>str</td>\n",[m
+        "      <td>52.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -341,8 +346,8 @@[m
+        "      <td>LargestPropertyUseTypeGFA</td>\n",[m
+        "      <td>3356</td>\n",[m
+        "      <td>20</td>\n",[m
+[31m-       "      <td>1.0</td>\n",[m
+[31m-       "      <td>3122</td>\n",[m
+[32m+[m[32m       "      <td>0.6</td>\n",[m
+[32m+[m[32m       "      <td>92.5</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>9.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -351,8 +356,8 @@[m
+        "      <td>SecondLargestPropertyUseType</td>\n",[m
+        "      <td>1679</td>\n",[m
+        "      <td>1697</td>\n",[m
+[31m-       "      <td>50.0</td>\n",[m
+[31m-       "      <td>50</td>\n",[m
+[32m+[m[32m       "      <td>50.3</td>\n",[m
+[32m+[m[32m       "      <td>1.5</td>\n",[m
+        "      <td>str</td>\n",[m
+        "      <td>52.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -361,8 +366,8 @@[m
+        "      <td>SecondLargestPropertyUseTypeGFA</td>\n",[m
+        "      <td>1679</td>\n",[m
+        "      <td>1697</td>\n",[m
+[31m-       "      <td>50.0</td>\n",[m
+[31m-       "      <td>1352</td>\n",[m
+[32m+[m[32m       "      <td>50.3</td>\n",[m
+[32m+[m[32m       "      <td>40.0</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -371,8 +376,8 @@[m
+        "      <td>ThirdLargestPropertyUseType</td>\n",[m
+        "      <td>596</td>\n",[m
+        "      <td>2780</td>\n",[m
+[31m-       "      <td>82.0</td>\n",[m
+[31m-       "      <td>44</td>\n",[m
+[32m+[m[32m       "      <td>82.3</td>\n",[m
+[32m+[m[32m       "      <td>1.3</td>\n",[m
+        "      <td>str</td>\n",[m
+        "      <td>52.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -381,8 +386,8 @@[m
+        "      <td>ThirdLargestPropertyUseTypeGFA</td>\n",[m
+        "      <td>596</td>\n",[m
+        "      <td>2780</td>\n",[m
+[31m-       "      <td>82.0</td>\n",[m
+[31m-       "      <td>501</td>\n",[m
+[32m+[m[32m       "      <td>82.3</td>\n",[m
+[32m+[m[32m       "      <td>14.8</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -391,8 +396,8 @@[m
+        "      <td>YearsENERGYSTARCertified</td>\n",[m
+        "      <td>119</td>\n",[m
+        "      <td>3257</td>\n",[m
+[31m-       "      <td>96.0</td>\n",[m
+[31m-       "      <td>65</td>\n",[m
+[32m+[m[32m       "      <td>96.5</td>\n",[m
+[32m+[m[32m       "      <td>1.9</td>\n",[m
+        "      <td>object</td>\n",[m
+        "      <td>60.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -402,7 +407,7 @@[m
+        "      <td>2533</td>\n",[m
+        "      <td>843</td>\n",[m
+        "      <td>25.0</td>\n",[m
+[31m-       "      <td>100</td>\n",[m
+[32m+[m[32m       "      <td>3.0</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>5.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -411,8 +416,8 @@[m
+        "      <td>SiteEUI(kBtu/sf)</td>\n",[m
+        "      <td>3369</td>\n",[m
+        "      <td>7</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>1085</td>\n",[m
+[32m+[m[32m       "      <td>0.2</td>\n",[m
+[32m+[m[32m       "      <td>32.1</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -421,8 +426,8 @@[m
+        "      <td>SiteEUIWN(kBtu/sf)</td>\n",[m
+        "      <td>3370</td>\n",[m
+        "      <td>6</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>1105</td>\n",[m
+[32m+[m[32m       "      <td>0.2</td>\n",[m
+[32m+[m[32m       "      <td>32.7</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -431,8 +436,8 @@[m
+        "      <td>SourceEUI(kBtu/sf)</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>1648</td>\n",[m
+[32m+[m[32m       "      <td>0.3</td>\n",[m
+[32m+[m[32m       "      <td>48.8</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -441,8 +446,8 @@[m
+        "      <td>SourceEUIWN(kBtu/sf)</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>1694</td>\n",[m
+[32m+[m[32m       "      <td>0.3</td>\n",[m
+[32m+[m[32m       "      <td>50.2</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>12.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -451,8 +456,8 @@[m
+        "      <td>SiteEnergyUse(kBtu)</td>\n",[m
+        "      <td>3371</td>\n",[m
+        "      <td>5</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>3354</td>\n",[m
+[32m+[m[32m       "      <td>0.1</td>\n",[m
+[32m+[m[32m       "      <td>99.3</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -461,8 +466,8 @@[m
+        "      <td>SiteEnergyUseWN(kBtu)</td>\n",[m
+        "      <td>3370</td>\n",[m
+        "      <td>6</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>3341</td>\n",[m
+[32m+[m[32m       "      <td>0.2</td>\n",[m
+[32m+[m[32m       "      <td>99.0</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -471,8 +476,8 @@[m
+        "      <td>SteamUse(kBtu)</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>131</td>\n",[m
+[32m+[m[32m       "      <td>0.3</td>\n",[m
+[32m+[m[32m       "      <td>3.9</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -481,8 +486,8 @@[m
+        "      <td>Electricity(kWh)</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>3352</td>\n",[m
+[32m+[m[32m       "      <td>0.3</td>\n",[m
+[32m+[m[32m       "      <td>99.3</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>12.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -491,8 +496,8 @@[m
+        "      <td>Electricity(kBtu)</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>3351</td>\n",[m
+[32m+[m[32m       "      <td>0.3</td>\n",[m
+[32m+[m[32m       "      <td>99.3</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -501,8 +506,8 @@[m
+        "      <td>NaturalGas(therms)</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>2109</td>\n",[m
+[32m+[m[32m       "      <td>0.3</td>\n",[m
+[32m+[m[32m       "      <td>62.5</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -511,8 +516,8 @@[m
+        "      <td>NaturalGas(kBtu)</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>2109</td>\n",[m
+[32m+[m[32m       "      <td>0.3</td>\n",[m
+[32m+[m[32m       "      <td>62.5</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>11.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -522,7 +527,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>2</td>\n",[m
+[32m+[m[32m       "      <td>0.1</td>\n",[m
+        "      <td>bool</td>\n",[m
+        "      <td>5.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -532,7 +537,7 @@[m
+        "      <td>0</td>\n",[m
+        "      <td>3376</td>\n",[m
+        "      <td>100.0</td>\n",[m
+[31m-       "      <td>0</td>\n",[m
+[32m+[m[32m       "      <td>0.0</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>NaN</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -542,7 +547,7 @@[m
+        "      <td>3376</td>\n",[m
+        "      <td>0</td>\n",[m
+        "      <td>0.0</td>\n",[m
+[31m-       "      <td>4</td>\n",[m
+[32m+[m[32m       "      <td>0.1</td>\n",[m
+        "      <td>str</td>\n",[m
+        "      <td>28.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -551,8 +556,8 @@[m
+        "      <td>Outlier</td>\n",[m
+        "      <td>32</td>\n",[m
+        "      <td>3344</td>\n",[m
+[31m-       "      <td>99.0</td>\n",[m
+[31m-       "      <td>2</td>\n",[m
+[32m+[m[32m       "      <td>99.1</td>\n",[m
+[32m+[m[32m       "      <td>0.1</td>\n",[m
+        "      <td>str</td>\n",[m
+        "      <td>12.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -561,8 +566,8 @@[m
+        "      <td>TotalGHGEmissions</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>2818</td>\n",[m
+[32m+[m[32m       "      <td>0.3</td>\n",[m
+[32m+[m[32m       "      <td>83.5</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>8.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -571,8 +576,8 @@[m
+        "      <td>GHGEmissionsIntensity</td>\n",[m
+        "      <td>3367</td>\n",[m
+        "      <td>9</td>\n",[m
+[31m-       "      <td>0.0</td>\n",[m
+[31m-       "      <td>511</td>\n",[m
+[32m+[m[32m       "      <td>0.3</td>\n",[m
+[32m+[m[32m       "      <td>15.1</td>\n",[m
+        "      <td>float64</td>\n",[m
+        "      <td>5.0</td>\n",[m
+        "    </tr>\n",[m
+[36m@@ -582,103 +587,103 @@[m
+       ],[m
+       "text/plain": [[m
+        "                            columns  non_null   nan  nan %  unique    types  \\\n",[m
+[31m-       "0                     OSEBuildingID      3376     0    0.0    3376    int64   \n",[m
+[31m-       "1                          DataYear      3376     0    0.0       1    int64   \n",[m
+[31m-       "2                      BuildingType      3376     0    0.0       8      str   \n",[m
+[31m-       "3               PrimaryPropertyType      3376     0    0.0      24      str   \n",[m
+[31m-       "4                      PropertyName      3376     0    0.0    3362      str   \n",[m
+[31m-       "5                           Address      3376     0    0.0    3354      str   \n",[m
+[31m-       "6                              City      3376     0    0.0       1      str   \n",[m
+[31m-       "7                             State      3376     0    0.0       1      str   \n",[m
+[31m-       "8                           ZipCode      3360    16    0.0      55  float64   \n",[m
+[31m-       "9     TaxParcelIdentificationNumber      3376     0    0.0    3268      str   \n",[m
+[31m-       "10              CouncilDistrictCode      3376     0    0.0       7    int64   \n",[m
+[31m-       "11                     Neighborhood      3376     0    0.0      19      str   \n",[m
+[31m-       "12                         Latitude      3376     0    0.0    2876  float64   \n",[m
+[31m-       "13                        Longitude      3376     0    0.0    2656  float64   \n",[m
+[31m-       "14                        YearBuilt      3376     0    0.0     113    int64   \n",[m
+[31m-       "15                NumberofBuildings      3368     8    0.0      17  float64   \n",[m
+[31m-       "16                   NumberofFloors      3376     0    0.0      50    int64   \n",[m
+[31m-       "17                 PropertyGFATotal      3376     0    0.0    3195    int64   \n",[m
+[31m-       "18               PropertyGFAParking      3376     0    0.0     496    int64   \n",[m
+[31m-       "19           PropertyGFABuilding(s)      3376     0    0.0    3193    int64   \n",[m
+[31m-       "20        ListOfAllPropertyUseTypes      3367     9    0.0     466      str   \n",[m
+[31m-       "21           LargestPropertyUseType      3356    20    1.0      56      str   \n",[m
+[31m-       "22        LargestPropertyUseTypeGFA      3356    20    1.0    3122  float64   \n",[m
+[31m-       "23     SecondLargestPropertyUseType      1679  1697   50.0      50      str   \n",[m
+[31m-       "24  SecondLargestPropertyUseTypeGFA      1679  1697   50.0    1352  float64   \n",[m
+[31m-       "25      ThirdLargestPropertyUseType       596  2780   82.0      44      str   \n",[m
+[31m-       "26   ThirdLargestPropertyUseTypeGFA       596  2780   82.0     501  float64   \n",[m
+[31m-       "27         YearsENERGYSTARCertified       119  3257   96.0      65   object   \n",[m
+[31m-       "28                  ENERGYSTARScore      2533   843   25.0     100  float64   \n",[m
+[31m-       "29                 SiteEUI(kBtu/sf)      3369     7    0.0    1085  float64   \n",[m
+[31m-       "30               SiteEUIWN(kBtu/sf)      3370     6    0.0    1105  float64   \n",[m
+[31m-       "31               SourceEUI(kBtu/sf)      3367     9    0.0    1648  float64   \n",[m
+[31m-       "32             SourceEUIWN(kBtu/sf)      3367     9    0.0    1694  float64   \n",[m
+[31m-       "33              SiteEnergyUse(kBtu)      3371     5    0.0    3354  float64   \n",[m
+[31m-       "34            SiteEnergyUseWN(kBtu)      3370     6    0.0    3341  float64   \n",[m
+[31m-       "35                   SteamUse(kBtu)      3367     9    0.0     131  float64   \n",[m
+[31m-       "36                 Electricity(kWh)      3367     9    0.0    3352  float64   \n",[m
+[31m-       "37                Electricity(kBtu)      3367     9    0.0    3351  float64   \n",[m
+[31m-       "38               NaturalGas(therms)      3367     9    0.0    2109  float64   \n",[m
+[31m-       "39                 NaturalGas(kBtu)      3367     9    0.0    2109  float64   \n",[m
+[31m-       "40                      DefaultData      3376     0    0.0       2     bool   \n",[m
+[31m-       "41                         Comments         0  3376  100.0       0  float64   \n",[m
+[31m-       "42                 ComplianceStatus      3376     0    0.0       4      str   \n",[m
+[31m-       "43                          Outlier        32  3344   99.0       2      str   \n",[m
+[31m-       "44                TotalGHGEmissions      3367     9    0.0    2818  float64   \n",[m
+[31m-       "45            GHGEmissionsIntensity      3367     9    0.0     511  float64   \n",[m
+[32m+[m[32m       "0                     OSEBuildingID      3376     0    0.0   100.0    int64   \n",[m
+[32m+[m[32m       "1                          DataYear      3376     0    0.0     0.0    int64   \n",[m
+[32m+[m[32m       "2                      BuildingType      3376     0    0.0     0.2      str   \n",[m
+[32m+[m[32m       "3               PrimaryPropertyType      3376     0    0.0     0.7      str   \n",[m
+[32m+[m[32m       "4                      PropertyName      3376     0    0.0    99.6      str   \n",[m
+[32m+[m[32m       "5                           Address      3376     0    0.0    99.3      str   \n",[m
+[32m+[m[32m       "6                              City      3376     0    0.0     0.0      str   \n",[m
+[32m+[m[32m       "7                             State      3376     0    0.0     0.0      str   \n",[m
+[32m+[m[32m       "8                           ZipCode      3360    16    0.5     1.6  float64   \n",[m
+[32m+[m[32m       "9     TaxParcelIdentificationNumber      3376     0    0.0    96.8      str   \n",[m
+[32m+[m[32m       "10              CouncilDistrictCode      3376     0    0.0     0.2    int64   \n",[m
+[32m+[m[32m       "11                     Neighborhood      3376     0    0.0     0.6      str   \n",[m
+[32m+[m[32m       "12                         Latitude      3376     0    0.0    85.2  float64   \n",[m
+[32m+[m[32m       "13                        Longitude      3376     0    0.0    78.7  float64   \n",[m
+[32m+[m[32m       "14                        YearBuilt      3376     0    0.0     3.3    int64   \n",[m
+[32m+[m[32m       "15                NumberofBuildings      3368     8    0.2     0.5  float64   \n",[m
+[32m+[m[32m       "16                   NumberofFloors      3376     0    0.0     1.5    int64   \n",[m
+[32m+[m[32m       "17                 PropertyGFATotal      3376     0    0.0    94.6    int64   \n",[m
+[32m+[m[32m       "18               PropertyGFAParking      3376     0    0.0    14.7    int64   \n",[m
+[32m+[m[32m       "19           PropertyGFABuilding(s)      3376     0    0.0    94.6    int64   \n",[m
+[32m+[m[32m       "20        ListOfAllPropertyUseTypes      3367     9    0.3    13.8      str   \n",[m
+[32m+[m[32m       "21           LargestPropertyUseType      3356    20    0.6     1.7      str   \n",[m
+[32m+[m[32m       "22        LargestPropertyUseTypeGFA      3356    20    0.6    92.5  float64   \n",[m
+[32m+[m[32m       "23     SecondLargestPropertyUseType      1679  1697   50.3     1.5      str   \n",[m
+[32m+[m[32m       "24  SecondLargestPropertyUseTypeGFA      1679  1697   50.3    40.0  float64   \n",[m
+[32m+[m[32m       "25      ThirdLargestPropertyUseType       596  2780   82.3     1.3      str   \n",[m
+[32m+[m[32m       "26   ThirdLargestPropertyUseTypeGFA       596  2780   82.3    14.8  float64   \n",[m
+[32m+[m[32m       "27         YearsENERGYSTARCertified       119  3257   96.5     1.9   object   \n",[m
+[32m+[m[32m       "28                  ENERGYSTARScore      2533   843   25.0     3.0  float64   \n",[m
+[32m+[m[32m       "29                 SiteEUI(kBtu/sf)      3369     7    0.2    32.1  float64   \n",[m
+[32m+[m[32m       "30               SiteEUIWN(kBtu/sf)      3370     6    0.2    32.7  float64   \n",[m
+[32m+[m[32m       "31               SourceEUI(kBtu/sf)      3367     9    0.3    48.8  float64   \n",[m
+[32m+[m[32m       "32             SourceEUIWN(kBtu/sf)      3367     9    0.3    50.2  float64   \n",[m
+[32m+[m[32m       "33              SiteEnergyUse(kBtu)      3371     5    0.1    99.3  float64   \n",[m
+[32m+[m[32m       "34            SiteEnergyUseWN(kBtu)      3370     6    0.2    99.0  float64   \n",[m
+[32m+[m[32m       "35                   SteamUse(kBtu)      3367     9    0.3     3.9  float64   \n",[m
+[32m+[m[32m       "36                 Electricity(kWh)      3367     9    0.3    99.3  float64   \n",[m
+[32m+[m[32m       "37                Electricity(kBtu)      3367     9    0.3    99.3  float64   \n",[m
+[32m+[m[32m       "38               NaturalGas(therms)      3367     9    0.3    62.5  float64   \n",[m
+[32m+[m[32m       "39                 NaturalGas(kBtu)      3367     9    0.3    62.5  float64   \n",[m
+[32m+[m[32m       "40                      DefaultData      3376     0    0.0     0.1     bool   \n",[m
+[32m+[
