@@ -14,7 +14,7 @@ class building_formula(BaseModel):
     # --- Types entiers ---
     NumberofBuildings: int = Field(ge=1, alias = 'Nombre de bâtiments' )
     NumberofFloors: int = Field(ge = 1, alias = 'Nombre d\'étage')
-    YearBuilt: int = Field(ge = 1000, le = 2026, alias = 'Année de construction')
+    YearBuilt: int = Field(ge = 1000, le = 2016, alias = 'Année de construction')
     sum_energy_use: int = Field(ge = 1, le = 3, alias = 'Nombre de source d\'energie utilisée')
     sum_types_use: int = Field(ge = 1, le = 3, alias = 'Nombre d\'usage des bâtiments')
 
@@ -54,15 +54,6 @@ class building_formula(BaseModel):
         allowed = ['DOWNTOWN', 'SOUTHEAST', 'NORTHEAST', 'EAST', 'Central', 'NORTH', 'MAGNOLIA / QUEEN ANNE', 'LAKE UNION', 'GREATER DUWAMISH', 'BALLARD', 'NORTHWEST', 'CENTRAL', 'SOUTHWEST', 'DELRIDGE', 'Ballard', 'North', 'Delridge', 'Northwest', 'DELRIDGE NEIGHBORHOODS']  
         if v not in allowed:
             raise ValueError(f"Quartier {v} non repertorié")
-        return v
-
-    # --- Cohérence de l'âge du bâtiment ---
-    @field_validator('YearBuilt')
-    @classmethod
-    def check_years(cls, v):
-        from datetime import datetime
-        if v > datetime.now().year :
-            raise ValueError(f"Année {v} incohérente")
         return v
 
 if __name__ == "__main__":
