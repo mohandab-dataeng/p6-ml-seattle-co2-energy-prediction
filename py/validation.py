@@ -7,25 +7,25 @@ class building_formula(BaseModel):
     # *** Verrouillage des types de données ***
 
     # --- Types des categories ---
-    BuildingType: str
-    PrimaryPropertyType: str
-    Neighborhood: str
+    BuildingType: str = Field(alias = 'Type de bâtiments')
+    PrimaryPropertyType: str = Field(alis = 'Bâtiment principal')
+    Neighborhood: str = Field(alias = 'Quartier')
 
     # --- Types entiers ---
-    NumberofBuildings: int = Field(ge=1)
-    NumberofFloors: int = Field(ge = 1)
-    YearBuilt: int = Field(ge = 1000, le = 2026)
-    sum_energy_use: int = Field(ge = 1, le = 3)
-    sum_types_use: int = Field(ge = 1, le = 3)
+    NumberofBuildings: int = Field(ge=1, alias = 'Nombre de bâtiments' )
+    NumberofFloors: int = Field(ge = 1, alias = 'Nombre d\'étage')
+    YearBuilt: int = Field(ge = 1000, le = 2026, alias = 'Année de construction')
+    sum_energy_use: int = Field(ge = 1, le = 3, alias = 'Nombre de source d\'energie utilisée')
+    sum_types_use: int = Field(ge = 1, le = 3, alias = 'Nombre d\'usage des bâtiments')
 
     # --- Types floats ---
-    PrimaryPropertyUseTypeGFA: float = Field(ge = 0)
-    SecondLargestPropertyUseTypeGFA: float = Field(ge = 0)
-    ThirdLargestPropertyUseTypeGFA: float = Field(ge = 0)
+    PrimaryPropertyUseTypeGFA: float = Field(ge = 0, alias = 'Surface de l\'usage principal')
+    SecondLargestPropertyUseTypeGFA: float = Field(ge = 0,alias = 'Surface de l\'usage secondaire')
+    ThirdLargestPropertyUseTypeGFA: float = Field(ge = 0, alias = 'Surface de l\'usage tertiaire')
 
     # --- Binaires 0 ou 1 ---
-    use_steam: int = Field(ge = 0, le = 1)
-    has_third_use: int = Field(ge = 0, le= 1)
+    use_steam: int = Field(ge = 0, le = 1, alias = 'Usage de la vapeur comme source d\'énergie')
+    has_third_use: int = Field(ge = 0, le= 1,'Bâtiments ayant plus de 3 usages' )
 
     # *** Validateurs (garde-fou) ***
 
