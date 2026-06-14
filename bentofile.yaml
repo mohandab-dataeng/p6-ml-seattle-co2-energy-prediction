@@ -1,0 +1,12 @@
+service: "py.service:EnergyPrediction"
+include: 
+  - "py/validation.py"
+  - "py/service.py"
+models:
+  - "model_nr_seattle_v1:latest"
+python:
+  packages: 
+    - numpy==2.4.6
+    - pandas==3.0.3
+    - pydantic==2.13.4
+    - scikit-learn==1.8.0

@@ -7,25 +7,25 @@ class building_formula(BaseModel):
     # *** Verrouillage des types de données ***
 
     # --- Types des categories ---
-    BuildingType: str = Field(alias = 'Type de bâtiments')
+    BuildingType: str = Field(description = 'Type de bâtiments')
     PrimaryPropertyType: str = Field(alis = 'Bâtiment principal')
-    Neighborhood: str = Field(alias = 'Quartier')
+    Neighborhood: str = Field(description = 'Quartier')
 
     # --- Types entiers ---
-    NumberofBuildings: int = Field(ge=1, alias = 'Nombre de bâtiments' )
-    NumberofFloors: int = Field(ge = 1, alias = 'Nombre d\'étage')
-    YearBuilt: int = Field(ge = 1000, le = 2016, alias = 'Année de construction')
-    sum_energy_use: int = Field(ge = 1, le = 3, alias = 'Nombre de source d\'energie utilisée')
-    sum_types_use: int = Field(ge = 1, le = 3, alias = 'Nombre d\'usage des bâtiments')
+    NumberofBuildings: int = Field(ge=1, description = 'Nombre de bâtiments' )
+    NumberofFloors: int = Field(ge = 1, description = 'Nombre d\'étage')
+    YearBuilt: int = Field(ge = 1000, le = 2016, description = 'Année de construction')
+    sum_energy_use: int = Field(ge = 1, le = 3, description = 'Nombre de source d\'energie utilisée')
+    sum_types_use: int = Field(ge = 1, le = 3, description = 'Nombre d\'usage des bâtiments')
 
     # --- Types floats ---
-    PrimaryPropertyUseTypeGFA: float = Field(ge = 0, alias = 'Surface de l\'usage principal')
-    SecondLargestPropertyUseTypeGFA: float = Field(ge = 0,alias = 'Surface de l\'usage secondaire')
-    ThirdLargestPropertyUseTypeGFA: float = Field(ge = 0, alias = 'Surface de l\'usage tertiaire')
+    PrimaryPropertyUseTypeGFA: float = Field(ge = 0, description = 'Surface de l\'usage principal')
+    SecondLargestPropertyUseTypeGFA: float = Field(ge = 0,description = 'Surface de l\'usage secondaire')
+    ThirdLargestPropertyUseTypeGFA: float = Field(ge = 0, description = 'Surface de l\'usage tertiaire')
 
     # --- Binaires 0 ou 1 ---
-    use_steam: int = Field(ge = 0, le = 1, alias = 'Usage de la vapeur comme source d\'énergie')
-    has_third_use: int = Field(ge = 0, le= 1,'Bâtiments ayant plus de 3 usages' )
+    use_steam: int = Field(ge = 0, le = 1, description = 'Usage de la vapeur comme source d\'énergie')
+    has_third_use: int = Field(ge = 0, le= 1, description = 'Bâtiments ayant plus de 3 usages' )
 
     # *** Validateurs (garde-fou) ***
 
