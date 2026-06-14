@@ -6,6 +6,7 @@
 ![Pydantic](https://img.shields.io/badge/Pydantic-2.13.4-green)
 ![Docker](https://img.shields.io/badge/Docker-✓-blue)
 ![Render](https://img.shields.io/badge/Cloud-Render-46E3B7)
+______
 
 ## Présentation
 La municipalité américaine de Seattle souhaite prédire sa consommation électrique de ses bâtiments en se basant uniquement sur leurs caractéristiques.Pour satisfaire cette mission,  nous avons développé un modèle de prediction à partir d'un dataset composé des détails et de mesures en 2016 sur l'ensemble des infrastuctures majeures de la ville. Le modèle de prediction sera disponible via une API en cloud computing. Nous pourrons au final executer des requêtes avec des détails differents afin de prédir la consommation d'un bâtiment particulier.
@@ -17,6 +18,7 @@ ______
 
 Techniquement cela c'est presque entièrement sous Python sur differends notebook et scripts, et les librairies nécessaires. Afin d'accelerer la tache, le modele a été enregistrer avec bentoml et l'image du du container pousser sur docker hub pour ensuite être déployé vias l'API render.
 
+```
 [Dataset Seattle 2016 — 3376 bâtiments]
         │
         ▼
@@ -54,17 +56,15 @@ Réponse : {"consommation_estimee_kbtu": ______}
 
 ```
 ______
-```
 
 ## Données
-<!-- INDICE : D'où viennent les données ? Lien vers la source. -->
-<!-- Volume : combien de lignes/colonnes. Périmètre : quel filtrage appliqué -->
+
+Source : [Seattle Building Energy Benchmarking 2016](https://data.seattle.gov/dataset/2016-Building-Energy-Benchmarking/2bpz-gwpy)
+3 376 bâtiments → 1 668 non-résidentiels retenus · 16 features sélectionnées après feature engineering
 
 ______
 
 ## Prérequis
-<!-- INDICE : Tout ce qu'il faut installer AVANT de lancer le projet -->
-<!-- Une ligne par outil. Précise si c'est local ou container -->
 
 | Outil | Version | Remarque |
 |---|---|---|
@@ -73,10 +73,9 @@ ______
 | BentoML | 1.4.39 | local |
 | Cloud computing | - | Render, GCP, AWS ou autre au choix |
 
+______
 
 ## Installation
-<!-- INDICE : Commandes à lancer dans l'ordre, de zéro jusqu'à "ça tourne" -->
-<!-- Quelqu'un qui ne connaît pas le projet doit pouvoir copier-coller et lancer -->
 
 ```bash
 # 1. Dans la racine du projet, pour produire le dockerfile.yaml et le requirements.txt
@@ -98,6 +97,7 @@ docker push <username/nom du service>
 # et déployer l'image en renseignant : docker.io/<username/nom du service>
 # Port : 3000
 ```
+______
 
 ## Utilisation
 
@@ -138,7 +138,7 @@ curl -X POST https://energy-prediction-mq7rbuthgo5h7lyd.onrender.com/predict \
 ```json
 {"consommation_estimee_kbtu": 219062753.89}
 ```
-
+______
 
 ## Structure du projet
 <!-- INDICE : Arbre du répertoire avec un commentaire par fichier/dossier important -->
@@ -172,6 +172,7 @@ curl -X POST https://energy-prediction-mq7rbuthgo5h7lyd.onrender.com/predict \
 ├── README.md
 └── uv.lock
 ```
+______
 
 ## Tests
 
