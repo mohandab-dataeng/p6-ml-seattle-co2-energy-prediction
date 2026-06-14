@@ -15,10 +15,12 @@ class EnergyPrediction :
         # charge le model stocké dans le magasin bentoml
         bento_model = bentoml.models.get('model_nr_seattle_v1:latest')
 
+        # La liste des colonnes dans le bon ordres pour la transferer `predict`
         self.features_names = bento_model.custom_objects['features_names']
 
     @bentoml.api
     def predict(self, input_data: building_formula):
+        # Transforme l'objet en dictionnaire python
         data = input_data.model_dump()
 
         building_age = 2016 - data["YearBuilt"]
@@ -43,11 +45,13 @@ class EnergyPrediction :
                 "total_ty_gfa": total_ty_gfa,
                 "use_steam": data["use_steam"],
             }
-        
+        # Convertit en table
         df = pd.DataFrame([features], columns = self.features_names)
 
+        # Charge le modèle definitif mais en log
         prediction_log = self.pipeline.predict(df)
 
+        # Delog le resultat
         prediction_kBtu = np.expm1(prediction_log[0])
 
         return {"consommation_estimee_kbtu": round(float(prediction_kBtu), 2)}
